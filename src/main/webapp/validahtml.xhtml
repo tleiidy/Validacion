@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Html</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            HTML
+            <h1>Diligencie el formulario</h1>
+            <h:panelGrid id="grid" columns="4" cellpadding="5">
+                <h:outputLabel  value="Nombre: " />
+                <h:inputText id="nombre" value="#{persona.nombre}" label="Nombre" required="true" validatorMessage="Campo obligatorio"/>
+                <h:message for="nombre" />
+                <h:outputText value="#{persona.nombre}" /> 
+                    
+                <h:outputLabel  value="Edad: " />
+                <h:inputText id="edad" value="#{persona.edad}" label="Edad" required="true">
+                    <f:validateDoubleRange minimum="18" maximum="99" />
+                </h:inputText>
+                <h:message for="edad" />
+                <h:outputText value="#{persona.edad}" />
+                
+                <h:outputLabel for="fecha" value="Fecha" />
+                <h:inputText id="fecha" value="#{persona.fecha}" label="fecha">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:inputText>
+                <h:message for="fecha" />
+                <h:outputText value="#{persona.fecha}"/>
+                
+                <h:outputLabel  value="Correo: " />
+                <h:inputText id="correo" value="#{persona.correo}" label="correo" required="true" validatorMessage="Formato de correo invalido">
+                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+                </h:inputText>
+                <h:message for="correo" />
+                <h:outputText value="#{persona.correo}" />
+                
+                <h:outputLabel for="moneda" value="Moneda (€):"/>
+                <h:inputText id="moneda" value="#{persona.moneda}" label="Moneda" >
+                    <f:convertNumber type="currency" currencySymbol="€"/>
+                </h:inputText>
+                <h:message for="moneda" />
+                <h:outputText value="#{persona.moneda}">
+                    <f:convertNumber  type="currency" currencySymbol="€" />
+                </h:outputText>  
+                
+                <h:outputLabel for="desc" value="Descripcion" />
+                <h:inputTextarea id="desc" value="#{persona.descripcion}" required="true" label="Descripcion">
+                    <f:validateLength minimum="3" maximum="40" />
+                </h:inputTextarea>
+                <h:message for="desc" />
+                <h:outputText value="#{persona.descripcion}" /> 
+                
+            </h:panelGrid>
+            <h:commandButton value="Validar" style="margin-right:10px" />
+        </h:form>
+    </h:body>
+</html>
+
+
+

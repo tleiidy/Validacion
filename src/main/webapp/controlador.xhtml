@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Controlador</title>
+    </h:head>
+    <h:body>
+        Controlador
+        <h1>Diligencie el formulario</h1>
+        <h:form>
+            <h:panelGrid id="grid" columns="4" cellpadding="5">                                                             
+                    
+                <h:outputLabel  value="Nombre: " />
+                <h:inputText id="nombre" value="#{controlador.nombre}" label="Nombre" required="true"/>
+                <h:message for="nombre" />
+                <h:outputText value="#{controlador.nombre}" />                                      
+
+                <h:outputLabel  value="Edad: " />
+                <h:inputText id="edad" value="#{controlador.edad}" label="Edad"/>
+                <h:message for="edad" />
+                <h:outputText value="#{controlador.edad}" />
+                
+                <h:outputLabel  value="Correo : " />
+                <h:inputText id="correo" value="#{controlador.correo}" label="correo"/>
+                <h:message for="correo" />
+                <h:outputText value="#{controlador.correo}" />
+                
+                <h:outputLabel  value="Fecha mayor al dia de hoy:"/>                                
+                <h:inputText id="fecha" value="#{controlador.fecha}">
+                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                </h:inputText> 
+                <h:message for="fecha" />
+                <h:outputText/>
+                
+                
+            </h:panelGrid>
+            <h:commandButton value="Validar" style="margin-right:10px" />
+        </h:form>
+    </h:body>
+</html>
+
